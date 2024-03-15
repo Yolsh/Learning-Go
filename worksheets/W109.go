@@ -4,8 +4,8 @@ import "fmt"
 
 var Classes = []string{"Comp Sci", "Maths", "Physics"}
 var Students = [][]string{
-	{"Josh", "Joe", "Adam", "Will"}, 
-	{"Josh", "Joe", "Tommy", "Tom"}, 
+	{"Josh", "Joe", "Adam", "Will"},
+	{"Josh", "Joe", "Tommy", "Tom"},
 	{"Josh", "Lewis", "Hamish", "Guy"}}
 
 func W109() {
@@ -20,32 +20,32 @@ func W109() {
 	6: Print College`)
 	fmt.Scan(&Ans)
 	switch Ans {
-		case "1":
-			fmt.Println("Class Name?")
-			fmt.Scan(&Ans)
-			AddClass(Ans)
-		case "2":
-			fmt.Println("Class Name?")
-			fmt.Scan(&Ans)
-			RemoveClass(Ans)
-		case "3":
-			fmt.Println("Student Name?")
-			fmt.Scan(&Ans)
-			fmt.Println("Class Name?")
-			fmt.Scan(&AltAns)
-			AddStudentToClass(Ans, AltAns)
-		case "4":
-			fmt.Println("Student Name?")
-			fmt.Scan(&Ans)
-			fmt.Println("Class Name?")
-			fmt.Scan(&AltAns)
-			RemoveStudentFromClass(Ans, AltAns)
-		case "5":
-			fmt.Println("Class to print?")
-			fmt.Scan (&Ans)
-			PrintClassList(Ans)
-		case "6":
-			PrintWholeCollege()
+	case "1":
+		fmt.Println("Class Name?")
+		fmt.Scan(&Ans)
+		AddClass(Ans)
+	case "2":
+		fmt.Println("Class Name?")
+		fmt.Scan(&Ans)
+		RemoveClass(Ans)
+	case "3":
+		fmt.Println("Student Name?")
+		fmt.Scan(&Ans)
+		fmt.Println("Class Name?")
+		fmt.Scan(&AltAns)
+		AddStudentToClass(Ans, AltAns)
+	case "4":
+		fmt.Println("Student Name?")
+		fmt.Scan(&Ans)
+		fmt.Println("Class Name?")
+		fmt.Scan(&AltAns)
+		RemoveStudentFromClass(Ans, AltAns)
+	case "5":
+		fmt.Println("Class to print?")
+		fmt.Scan(&Ans)
+		PrintClassList(Ans)
+	case "6":
+		PrintWholeCollege()
 	}
 }
 
@@ -74,7 +74,7 @@ func AddStudentToClass(studentName string, className string) {
 func RemoveStudentFromClass(studentName string, className string) {
 	for i, val := range Classes {
 		if val == className {
-			for i, _ := range Students[i] {
+			for i := range Students[i] {
 				Students = append(Students[:i], Students[i+1:]...)
 			}
 		}

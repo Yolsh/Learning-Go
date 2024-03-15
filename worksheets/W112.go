@@ -1,7 +1,22 @@
 package main
 
-import "fmt"
+import (
+  "fmt"
+  "os"
+)
 
 func W112() {
-  //next is to read from text files...
+  data, err := os.ReadFile("./Readable_Files/W112.txt")
+  var convert string
+  check(err)
+  for _, val := range data {
+    if val == '%' {
+      convert += " "
+    } else if val == '&'{
+      convert += "@"
+    } else {
+      convert += "\n"
+    }
+  }
+  fmt.Println(convert)
 }
