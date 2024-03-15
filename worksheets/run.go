@@ -29,6 +29,8 @@ func main() {
 		W109()
 	case "W110":
 		W110()
+  case "W112":
+    W112()
 	default:
 		fmt.Println(input, " isn't available")
 	}
