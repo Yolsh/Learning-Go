@@ -74,8 +74,10 @@ func addStudentToClass(studentName string, className string) {
 func removeStudentFromClass(studentName string, className string) {
 	for i, val := range Classes {
 		if val == className {
-			for i := range Students[i] {
-				Students = append(Students[:i], Students[i+1:]...)
+			for j, val := range Students[i] {
+				if val == studentName {
+					Students = append(Students[:j], Students[j+1:]...)
+				}
 			}
 		}
 	}
