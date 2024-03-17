@@ -1,4 +1,4 @@
-package main
+package worksheets
 
 import (
 	"fmt"
@@ -6,12 +6,12 @@ import (
 )
 
 func W108() {
-	var names = [5]string {"MJ", "Jeff", "James", "Steven Hawking", "Will Smith"}
-	var clues1 = [5]string {"basketball", "minion", "orange", "black hole", "iRobot"}
-	var clues2 = [5]string {"shoes", "starr", "piggy nose", "wheelchair", "Rewind"}
+	var names = [5]string{"MJ", "Jeff", "James", "Steven Hawking", "Will Smith"}
+	var clues1 = [5]string{"basketball", "minion", "orange", "black hole", "iRobot"}
+	var clues2 = [5]string{"shoes", "starr", "piggy nose", "wheelchair", "Rewind"}
 	points := 0
 
-	for n:=0; n<len(clues1); n++ {
+	for n := 0; n < len(clues1); n++ {
 		i := rand.Intn(len(clues1))
 		var val string = clues1[i]
 		fmt.Println(val)
