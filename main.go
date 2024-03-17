@@ -9,6 +9,8 @@ import (
 
 	"github.com/Yolsh/Learning-Go/LearningInit"
 	"github.com/Yolsh/Learning-Go/worksheets"
+	"github.com/Yolsh/Learning-Go/simpleServer"
+	"github.com/Yolsh/Learning-Go/concurrencySimple"
 )
 
 func main() {
@@ -19,21 +21,24 @@ func main() {
 	check(err)
 	fmt.Println("What Package would you like to run?")
 	for _, val := range files {
-		var fileName string = val.Name()
-		if !strings.ContainsRune(fileName, '.') {
+		if !strings.ContainsRune(val.Name(), '.') {
 			i++
-			fmt.Printf("%v: %v\n", i, fileName)
-			packages = append(packages, fileName)
+			fmt.Printf("%v: %v\n", i, val.Name())
+			packages = append(packages, val.Name())
 		}
 	}
 	fmt.Scan(&Ans)
 	val, err := strconv.ParseInt(Ans, 10, 64)
 	check(err)
 	switch val {
-	case int64(slices.Index(packages, "LearningInit")) + 1:
-		LearningInit.Run()
-	case int64(slices.Index(packages, "worksheets")) + 1:
-		worksheets.Run()
+		case int64(slices.Index(packages, "LearningInit")) + 1:
+			LearningInit.Run()
+		case int64(slices.Index(packages, "worksheets")) + 1:
+			worksheets.Run()
+		case int64(slices.Index(packages, "simpleServer")) + 1:
+			simpleServer.ServerStart()
+		case int64(slices.Index(packages, "concurrencySimple")) + 1:
+			concurrencySimple.Start()
 	}
 }
 

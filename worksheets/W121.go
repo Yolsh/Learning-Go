@@ -18,7 +18,7 @@ func W121() {
 			player = true
 		}
 	}
-	printBoard(Board)
+	fmt.Println("Congrats player (player type here) you have won!")
 }
 
 func printBoard(Board [6][7]string) {
@@ -54,26 +54,30 @@ func playerGo(Board [6][7]string, player bool) [6][7]string {
 	} else {
 		Board[0][num-1] = "0"
 	}
-	y, x := isSpaced(Board)
-	if y > -1 && x > -1 {
-		Board = moveDown(Board, y, x)
+	Board = moveDown(Board)
+	return Board
+}
+
+func moveDown(Board [6][7]string) [6][7]string {
+	for y := range Board {
+		for x := range Board[0] {
+			if isSpaced(Board, y, x) {
+				var ymod = y
+				for isSpaced(Board, ymod, x) {
+					ymod++
+				}
+				Board[ymod][x] = Board[y][x]
+			}
+		}
 	}
 	return Board
 }
 
-func moveDown(Board [6][7]string, y int, x int) [6][7]string {
-	for y-//some number here
-}
-
-func isSpaced(Board [6][7]string) (int, int) {
-	for y := range Board {
-		for x := range Board[0] {
-			if Board[y][x] != " " && y-1 > len(Board) && Board[y-1][x] == " " {
-				return y, x
-			}
-		}
+func isSpaced(Board [6][7]string, y int, x int) bool {
+	if Board[y][x] != " " && y < len(Board) && Board[y+1][x] == " " {
+		return true
 	}
-	return -1, -1
+	return false
 }
 
 func isWon(Board [6][7]string) bool {
