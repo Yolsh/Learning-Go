@@ -82,12 +82,13 @@ func isSpaced(Board [5][6]string) bool {
 func isWon(Board [5][6]string) bool {
 	var isWonCheck func([5][6]string, int, int, int8) bool
 	isWonCheck = func(Board [5][6]string, i int, j int, direction int8) bool {
-		if Board[i + int(direction)][j + int(direction)] != " " {
-			isWonCheck(Board, i + int(direction), j + int(direction), direction)
-		} 
-		if Board[][] != " " {
-
+		if Board[i+int(direction)][j+int(direction)] != " " {
+			isWonCheck(Board, i+int(direction), j+int(direction), direction)
 		}
+		//if Board[][] != " " {
+
+		//}
+		return false
 	}
 
 	for i := range Board {
@@ -95,17 +96,18 @@ func isWon(Board [5][6]string) bool {
 			if val != " " {
 				if Board[i-1][j-1] != " " {
 					isWonCheck(Board, i, j, -1)
-				} 
+				}
 				if Board[i-1][j] != " " {
 					isWonCheck(Board, i, j, 0)
 				}
-				if Board [i-1][j+1] != " " {
+				if Board[i-1][j+1] != " " {
 					isWonCheck(Board, i, j, 1)
 				}
-				if Board [i][j+1] != " " {
+				if Board[i][j+1] != " " {
 					isWonCheck(Board, i, j, 2)
 				}
 			}
 		}
 	}
+	return false
 }

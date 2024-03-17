@@ -1,0 +1,5 @@
+package LearningInit
+
+func Run() {
+
+}

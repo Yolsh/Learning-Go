@@ -3,12 +3,15 @@ package worksheets
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
-func main() {
-	files, _ := os.ReadDir(".")
+func Run() {
+	files, _ := os.ReadDir("./worksheets")
 	for _, val := range files {
-		fmt.Println(val)
+		if strings.Contains(val.Name(), ".go") && val.Name() != "Run.go" {
+			fmt.Println(val)
+		}
 	}
 	fmt.Println("what program would you like to run?")
 	var input string

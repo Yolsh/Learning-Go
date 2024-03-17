@@ -6,7 +6,7 @@ import "fmt"
 var H string = "Hello"
 var Com = ","
 
-func main() {
+func Hello() {
 	W := "World"
 	fmt.Println(H, Com, W)
 }

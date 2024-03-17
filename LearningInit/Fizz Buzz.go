@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func FizzBuzz() {
 	for i := 0; i < 300; i++ {
 		if i%3 == 0 && i%5 == 0 {
 			fmt.Println("Fizz Buzz")
