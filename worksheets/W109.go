@@ -23,33 +23,33 @@ func W109() {
 	case "1":
 		fmt.Println("Class Name?")
 		fmt.Scan(&Ans)
-		AddClass(Ans)
+		addClass(Ans)
 	case "2":
 		fmt.Println("Class Name?")
 		fmt.Scan(&Ans)
-		RemoveClass(Ans)
+		removeClass(Ans)
 	case "3":
 		fmt.Println("Student Name?")
 		fmt.Scan(&Ans)
 		fmt.Println("Class Name?")
 		fmt.Scan(&AltAns)
-		AddStudentToClass(Ans, AltAns)
+		addStudentToClass(Ans, AltAns)
 	case "4":
 		fmt.Println("Student Name?")
 		fmt.Scan(&Ans)
 		fmt.Println("Class Name?")
 		fmt.Scan(&AltAns)
-		RemoveStudentFromClass(Ans, AltAns)
+		removeStudentFromClass(Ans, AltAns)
 	case "5":
 		fmt.Println("Class to print?")
 		fmt.Scan(&Ans)
-		PrintClassList(Ans)
+		printClassList(Ans)
 	case "6":
-		PrintWholeCollege()
+		printWholeCollege()
 	}
 }
 
-func RemoveClass(Class string) {
+func removeClass(Class string) {
 	for i, val := range Classes {
 		if val == Class {
 			Classes = append(Classes[:i], Classes[i+1:]...)
@@ -57,13 +57,13 @@ func RemoveClass(Class string) {
 	}
 }
 
-func AddClass(className string) {
+func addClass(className string) {
 	Classes = append(Classes, className)
 	Register := []string{}
 	Students = append(Students, Register)
 }
 
-func AddStudentToClass(studentName string, className string) {
+func addStudentToClass(studentName string, className string) {
 	for i, val := range Classes {
 		if val == className {
 			Students[i] = append(Students[i], studentName)
@@ -71,7 +71,7 @@ func AddStudentToClass(studentName string, className string) {
 	}
 }
 
-func RemoveStudentFromClass(studentName string, className string) {
+func removeStudentFromClass(studentName string, className string) {
 	for i, val := range Classes {
 		if val == className {
 			for i := range Students[i] {
@@ -81,7 +81,7 @@ func RemoveStudentFromClass(studentName string, className string) {
 	}
 }
 
-func PrintClassList(className string) {
+func printClassList(className string) {
 	for i, val := range Classes {
 		if val == className {
 			fmt.Println(Students[i])
@@ -89,7 +89,7 @@ func PrintClassList(className string) {
 	}
 }
 
-func PrintWholeCollege() {
+func printWholeCollege() {
 	for i, val := range Classes {
 		fmt.Printf("the Class %v has %v in it ", val, Students[i])
 	}

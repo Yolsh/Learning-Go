@@ -6,7 +6,7 @@ import (
 
 //Doesn't work !!!
 
-func CalcTriNums(n int) []int {
+func calcTriNums(n int) []int {
 	k, j := 1, 1
 	output := make([]int, n)
 	for i := 1; i <= n; i++ {
@@ -22,7 +22,7 @@ func W103() {
 	fmt.Println("how many rows for the pyramid?")
 	var rows int
 	fmt.Scan(&rows)
-	triangles := CalcTriNums(rows)
+	var triangles []int = calcTriNums(rows)
 	stars := "*"
 	for i := 0; i < rows; i++ {
 		for j := 0; i != len(triangles)-1 && j < triangles[len(triangles)-(i+1)]-triangles[len(triangles)-(i+2)]; j++ {

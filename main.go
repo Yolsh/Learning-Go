@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -29,9 +30,9 @@ func main() {
 	val, err := strconv.ParseInt(Ans, 10, 64)
 	check(err)
 	switch val {
-	case int64(indexOf(packages, "LearningInit")):
+	case int64(slices.Index(packages, "LearningInit")):
 		LearningInit.Run()
-	case int64(indexOf(packages, "worksheets")):
+	case int64(slices.Index(packages, "worksheets")):
 		worksheets.Run()
 	}
 }
@@ -40,13 +41,4 @@ func check(e error) {
 	if e != nil {
 		panic(e)
 	}
-}
-
-func indexOf[T string | int](slice []T, search T) int {
-	for i, val := range slice {
-		if val == search {
-			return i + 1
-		}
-	}
-	return -1
 }

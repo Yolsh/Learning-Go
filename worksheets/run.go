@@ -7,10 +7,13 @@ import (
 )
 
 func Run() {
-	files, _ := os.ReadDir("./worksheets")
+	files, err := os.ReadDir("./worksheets")
+	var i int16
+	check(err)
 	for _, val := range files {
 		if strings.Contains(val.Name(), ".go") && val.Name() != "Run.go" {
-			fmt.Println(val)
+			i++
+			fmt.Printf("%v: %v\n", i, val.Name())
 		}
 	}
 	fmt.Println("what program would you like to run?")

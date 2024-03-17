@@ -7,21 +7,21 @@ import (
 
 func W121() {
 	Board := [5][6]string{}
-	playerGo := false
-	FillBoard(Board)
+	player := false
+	fillBoard(Board)
 	for isWon(Board) {
-		PrintBoard(Board)
-		PlayerGo(Board, playerGo)
-		if playerGo {
-			playerGo = false
+		printBoard(Board)
+		playerGo(Board, player)
+		if player {
+			player = false
 		} else {
-			playerGo = true
+			player = true
 		}
 	}
-	PrintBoard(Board)
+	printBoard(Board)
 }
 
-func PrintBoard(Board [5][6]string) {
+func printBoard(Board [5][6]string) {
 	fmt.Println("1 2 3 4 5 6 7")
 	for i := range Board {
 		for j, val := range Board[i] {
@@ -34,7 +34,7 @@ func PrintBoard(Board [5][6]string) {
 	}
 }
 
-func FillBoard(Board [5][6]string) {
+func fillBoard(Board [5][6]string) {
 	for i := range Board {
 		for j := range Board[i] {
 			Board[i][j] = " "
@@ -42,7 +42,7 @@ func FillBoard(Board [5][6]string) {
 	}
 }
 
-func PlayerGo(Board [5][6]string, player bool) {
+func playerGo(Board [5][6]string, player bool) {
 	var Play string
 	fmt.Println("where would you like to go")
 	fmt.Scan(&Play)
@@ -53,11 +53,11 @@ func PlayerGo(Board [5][6]string, player bool) {
 		Board[0][num] = "0"
 	}
 	for isSpaced(Board) {
-		MoveDown(Board)
+		moveDown(Board)
 	}
 }
 
-func MoveDown(Board [5][6]string) {
+func moveDown(Board [5][6]string) {
 	for i := range Board {
 		for j := range Board[i] {
 			if Board[i][j] != " " && Board[i-1][j] == " " {
