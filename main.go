@@ -30,9 +30,9 @@ func main() {
 	val, err := strconv.ParseInt(Ans, 10, 64)
 	check(err)
 	switch val {
-	case int64(slices.Index(packages, "LearningInit")):
+	case int64(slices.Index(packages, "LearningInit")) + 1:
 		LearningInit.Run()
-	case int64(slices.Index(packages, "worksheets")):
+	case int64(slices.Index(packages, "worksheets")) + 1:
 		worksheets.Run()
 	}
 }
