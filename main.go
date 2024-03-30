@@ -8,9 +8,10 @@ import (
 	"strings"
 
 	"github.com/Yolsh/Learning-Go/LearningInit"
-	"github.com/Yolsh/Learning-Go/worksheets"
-	"github.com/Yolsh/Learning-Go/simpleServer"
+	"github.com/Yolsh/Learning-Go/apiCaller"
 	"github.com/Yolsh/Learning-Go/concurrencySimple"
+	"github.com/Yolsh/Learning-Go/simpleServer"
+	"github.com/Yolsh/Learning-Go/worksheets"
 )
 
 func main() {
@@ -31,14 +32,16 @@ func main() {
 	val, err := strconv.ParseInt(Ans, 10, 64)
 	check(err)
 	switch val {
-		case int64(slices.Index(packages, "LearningInit")) + 1:
-			LearningInit.Run()
-		case int64(slices.Index(packages, "worksheets")) + 1:
-			worksheets.Run()
-		case int64(slices.Index(packages, "simpleServer")) + 1:
-			simpleServer.ServerStart()
-		case int64(slices.Index(packages, "concurrencySimple")) + 1:
-			concurrencySimple.Start()
+	case int64(slices.Index(packages, "LearningInit")) + 1:
+		LearningInit.Run()
+	case int64(slices.Index(packages, "worksheets")) + 1:
+		worksheets.Run()
+	case int64(slices.Index(packages, "simpleServer")) + 1:
+		simpleServer.ServerStart()
+	case int64(slices.Index(packages, "concurrencySimple")) + 1:
+		concurrencySimple.Start()
+	case int64(slices.Index(packages, "apiCaller")) + 1:
+		apiCaller.Start()
 	}
 }
 
