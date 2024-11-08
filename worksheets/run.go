@@ -15,7 +15,7 @@ func Run() {
 	var i int16
 	fmt.Println("what program would you like to run?")
 	for _, val := range files {
-		if !strings.Contains(val.Name(), ".go") {
+		if !strings.Contains(val.Name(), ".go") && val.Name() != "run.go" {
 			i++
 			fmt.Printf("%v: %v\n", i, val.Name())
 			packages = append(packages, val.Name())

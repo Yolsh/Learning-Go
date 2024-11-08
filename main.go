@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/Yolsh/Learning-Go/AoC"
 	"github.com/Yolsh/Learning-Go/LearningInit"
 	"github.com/Yolsh/Learning-Go/apiCaller"
 	"github.com/Yolsh/Learning-Go/concurrencySimple"
@@ -16,7 +17,7 @@ import (
 
 func main() {
 	var Ans string
-	var i int8
+	var i int16
 	packages := []string{}
 	files, err := os.ReadDir(".")
 	check(err)
@@ -42,6 +43,10 @@ func main() {
 		concurrencySimple.Start()
 	case int64(slices.Index(packages, "apiCaller")) + 1:
 		apiCaller.Start()
+	case int64(slices.Index(packages, "AoC")) + 1:
+		AoC.Run()
+	default:
+		fmt.Println("That opton isn't available")
 	}
 }
 
