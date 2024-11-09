@@ -44,7 +44,7 @@ func main() {
 	case int64(slices.Index(packages, "apiCaller")) + 1:
 		apiCaller.Start()
 	case int64(slices.Index(packages, "AoC")) + 1:
-		AoC.Run()
+		AoC2023.Run()
 	default:
 		fmt.Println("That opton isn't available")
 	}

@@ -1,4 +1,4 @@
-package AoC
+package AoC2023
 
 import (
 	"fmt"
@@ -6,19 +6,16 @@ import (
 	"slices"
 	"strconv"
 	"strings"
-
-	AoC2023 "github.com/Yolsh/Learning-Go/AoC/2023-Practice"
-	AoC2024 "github.com/Yolsh/Learning-Go/Aoc/2024"
 )
 
 func Run() {
 	files, err := os.ReadDir("./AoC")
 	check(err)
 	packages := []string{}
-	fmt.Println("What Package would you like to run?")
 	var i int16
+	fmt.Println("What Program would you like to run?")
 	for _, val := range files {
-		if !strings.ContainsRune(val.Name(), '.') {
+		if strings.Contains(val.Name(), ".go") && val.Name() != "run.go" {
 			i++
 			fmt.Printf("%v: %v\n", i, val.Name())
 			packages = append(packages, val.Name())
@@ -30,12 +27,20 @@ func Run() {
 	val, err := strconv.ParseInt(input, 10, 64)
 	check(err)
 	switch val {
-	case int64(slices.Index(packages, "2023-Practice")) + 1:
-		AoC2023.Run()
-	case int64(slices.Index(packages, "2024")) + 1:
-		AoC2024.Run()
+	case int64(slices.Index(packages, "Day1.go")) + 1:
+		Day1()
+	case int64(slices.Index(packages, "Day2.go")) + 1:
+		Day2()
+	case int64(slices.Index(packages, "Day3.go")) + 1:
+		Day3()
+	case int64(slices.Index(packages, "Day5.go")) + 1:
+		Day5()
+	case int64(slices.Index(packages, "Day7.go")) + 1:
+		Day7()
+	case int64(slices.Index(packages, "Day8.go")) + 1:
+		Day8()
 	default:
-		fmt.Println("That option doesn't exist")
+		fmt.Println(input, " isn't available")
 	}
 }
 

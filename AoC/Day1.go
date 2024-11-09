@@ -69,7 +69,7 @@ func Day1() {
 }
 
 func readFile(path string) []string {
-	dat, err := os.ReadFile("./AoC/2023-Practice/ReadableFiles/" + path)
+	dat, err := os.ReadFile("./AoC/ReadableFiles/" + path)
 	ExtrapDat := string(dat)
 	check(err)
 	lines := make([]string, 0)
